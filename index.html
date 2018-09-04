@@ -1,56 +1,75 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<html lang="en">
 
-    <title>TITLE</title>
-    <link rel="stylesheet" href="style.css">
+<head>
+  <meta charset="UTF-8">
+  <title>JS Drum Kit</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-    <div id="keys">
-        <div class="key">
-            <h3>A</h3>
-            <p>CLAP</p>
-        </div>
-        <div class="key">
-            <h3>S</h3>
-            <p>HIHAT</p>
-        </div>
-        <div class="key">
-            <h3>D</h3>
-            <p>KICK</p>
-        </div>
-        <div class="key">
-            <h3>F</h3>
-            <p>OPENHAT</p>
-        </div>
-        <div class="key">
-            <h3>G</h3>
-            <p>BOOM</p>
-         </div>
-        <div class="key">
-            <h3>H</h3>
-            <p>RIDE</p>
-        </div>
-        <div class="key">
-            <h3>J</h3>
-            <p>SNARE</p>
-        </div>
-        <div class="key">
-            <h3>K</h3>
-            <p>TOM</p>
-        </div>
-        <div class="key">
-            <h3>L</h3>
-            <p>TINK</p>
-        </div>
-    </div>
 
 <body>
 
 
-    
-    <script src="script.js"></script>
+  <div class="keys">
+    <div data-key="65" class="key">
+      <kbd>A</kbd>
+      <span class="sound">clap</span>
+    </div>
+    <div data-key="83" class="key">
+      <kbd>S</kbd>
+      <span class="sound">hihat</span>
+    </div>
+    <div data-key="68" class="key">
+      <kbd>D</kbd>
+      <span class="sound">kick</span>
+    </div>
+    <div data-key="70" class="key">
+      <kbd>F</kbd>
+      <span class="sound">openhat</span>
+    </div>
+    <div data-key="71" class="key">
+      <kbd>G</kbd>
+      <span class="sound">boom</span>
+    </div>
+    <div data-key="72" class="key">
+      <kbd>H</kbd>
+      <span class="sound">ride</span>
+    </div>
+    <div data-key="74" class="key">
+      <kbd>J</kbd>
+      <span class="sound">snare</span>
+    </div>
+    <div data-key="75" class="key">
+      <kbd>K</kbd>
+      <span class="sound">tom</span>
+    </div>
+    <div data-key="76" class="key">
+      <kbd>L</kbd>
+      <span class="sound">tink</span>
+    </div>
+  </div>
+
+  <audio data-key="65" src="sounds/clap.wav"></audio>
+  <audio data-key="83" src="sounds/hihat.wav"></audio>
+  <audio data-key="68" src="sounds/kick.wav"></audio>
+  <audio data-key="70" src="sounds/openhat.wav"></audio>
+  <audio data-key="71" src="sounds/boom.wav"></audio>
+  <audio data-key="72" src="sounds/ride.wav"></audio>
+  <audio data-key="74" src="sounds/snare.wav"></audio>
+  <audio data-key="75" src="sounds/tom.wav"></audio>
+  <audio data-key="76" src="sounds/tink.wav"></audio>
+
+  <script>
+
+    window.addEventListener('keydown', function (e) { //listens for the keydown press
+      const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`); //selects the pressed audio element from the document
+      if (!audio) return;
+      audio.play();
+    });
+
+  </script>
+
+
 </body>
+
 </html>
